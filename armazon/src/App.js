@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import { BrowserRouter, Route } from 'react-router-dom';
+import HomeScreen from "./Screens/HomeScreen";
+import ProductScreen from "./Screens/ProductScreen";
 export class App extends Component {
   render() {
 
@@ -9,8 +11,10 @@ export class App extends Component {
     const closeMenu = () => {
       document.querySelector(".sidebar").classList.remove("open");
     }
-    
+
     return (
+
+  <BrowserRouter>
       <div class="grid-container">
         
     <header class="header">
@@ -41,75 +45,10 @@ export class App extends Component {
     </aside>
     <main class="main">
       <div class="content">
-        <ul class="products">
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-          <li>
-            <div class="product">
-              <img class="product-image" src="images/shirt01" alt="product" />
-              <div class="product-name">
-                <a href="product.html">Slim Shirt</a>
-              </div>
-              <div class="product-brand">Nike</div>
-              <div class="product-price">$60</div>
-              <div class="product-rating">4.5 Stars (10 Reviews)</div>
-            </div>
-          </li>
-
-        </ul>
+        <Route path="/product/:id" component={ProductScreen} />
+      
+        <Route path="/" exact ={true} component= {HomeScreen}/>
+       
       </div>
 
     </main>
@@ -117,8 +56,9 @@ export class App extends Component {
       All right reserved.
     </footer>
   </div>
-      
+  </BrowserRouter>
     )
+    
   }
 }
 
